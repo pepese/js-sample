@@ -4,7 +4,8 @@ module.exports = {
   /* ビルドの起点となるファイルの設定 */
   entry: [
     `./src/main.ts`,
-    `./src/vendor.ts`
+    `./src/vendor.ts`,
+    `./src/polyfills.ts`
   ],
   /* 出力されるファイルの設定 */
   output: {
