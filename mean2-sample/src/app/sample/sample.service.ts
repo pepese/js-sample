@@ -6,7 +6,7 @@ export class SampleService {
   constructor() { }
 
   getTitle() {
-    return 'app works!';
+    return 'app works using DI !';
   }
 
 }
