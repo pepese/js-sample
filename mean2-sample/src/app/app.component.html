@@ -2,13 +2,15 @@
   {{title}}
 </h1>
 
-<h2>双方向バインディングサンプル</h2>
-<input type="text" [(ngModel)]="bindText">
-<br />
-<p>{{bindText}}</p>
+<div class="sample">
+  <h2 class="sample__title">双方向バインディングサンプル</h2>
+  <input class="sample__input" type="text" [(ngModel)]="bindText">
+  <p class="sample__result">{{bindText}}</p>
+</div>
 
-<h2>HTTPリクエスト発行サンプル</h2>
-<input type="text" [(ngModel)]="testUrl">
-<button (click)="getSampleUrl()">テスト</button>
-<br />
-<p>{{resText}}</p>
+<div class="sample">
+  <h2 class="sample__title">HTTPリクエスト発行サンプル</h2>
+  <input class="sample__input" type="text" [(ngModel)]="testUrl">
+  <button (click)="getSampleUrl()">テスト</button>
+  <p class="sample__result">{{resText}}</p>
+</div>
