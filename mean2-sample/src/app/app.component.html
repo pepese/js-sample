@@ -5,12 +5,16 @@
 <div class="sample">
   <h2 class="sample__title">双方向バインディングサンプル</h2>
   <input class="sample__input" type="text" [(ngModel)]="bindText">
-  <p class="sample__result">{{bindText}}</p>
+  <div class="sample__result">
+    <p>{{bindText}}</p>
+  </div>
 </div>
 
 <div class="sample">
   <h2 class="sample__title">HTTPリクエスト発行サンプル</h2>
   <input class="sample__input" type="text" [(ngModel)]="testUrl">
   <button (click)="getSampleUrl()">テスト</button>
-  <p class="sample__result">{{resText}}</p>
+  <div class="sample__result">
+    <p>{{resText}}</p>
+  </div>
 </div>
