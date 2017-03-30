@@ -1,0 +1,13 @@
+{
+  "development": {
+    "port": "3000",
+    "lineUrl": "https://api.line.me/v2/bot/message/reply",
+    "lineChannelAccessToken": "xxxxx"
+  },
+  "test": {
+    "port": "3000"
+  },
+  "production": {
+    "port": "3000"
+  }
+}
