@@ -1,14 +1,17 @@
 {
   "development": {
     "lineUrl": "https://api.line.me/v2/bot/message/reply",
-    "lineChannelAccessToken": "xxxxx"
+    "lineChannelAccessToken": "xxxxx",
+    "lineChannelSecret": "xxxxx"
   },
   "test": {
     "lineUrl": "https://api.line.me/v2/bot/message/reply",
-    "lineChannelAccessToken": "xxxxx"
+    "lineChannelAccessToken": "xxxxx",
+    "lineChannelSecret": "xxxxx"
   },
   "production": {
     "lineUrl": "https://api.line.me/v2/bot/message/reply",
-    "lineChannelAccessToken": "xxxxx"
+    "lineChannelAccessToken": "xxxxx",
+    "lineChannelSecret": "xxxxx"
   }
 }
