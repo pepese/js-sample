@@ -13,7 +13,7 @@ const lineChannelSecret = config.lineChannelSecret;
 
 // signatureのvalidation
 const validate_signature = function(signature, body) {
-  return signature == crypto.createHmac('sha256', LINE_CHANNEL_SECRET).update(new Buffer(JSON.stringify(body), 'utf8')).digest('base64');
+  return signature == crypto.createHmac('sha256', lineChannelSecret).update(new Buffer(JSON.stringify(body), 'utf8')).digest('base64');
 };
 
 router.post('/', (req, res) => {
