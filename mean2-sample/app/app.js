@@ -62,7 +62,7 @@ console.log = function(d) {
 app.use(bodyParser.json());
 // ボディのURLエンコード
 app.use(bodyParser.urlencoded({ extended: false }));
-// ロガー（アクセスログ）
+// ロガー（アクセスログ）、上記「ログの設定」と関係
 app.use(logger('combined', {stream: accessLogStream}));
 // cookieパーサ
 // app.use(cookieParser());
