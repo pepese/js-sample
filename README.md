@@ -8,8 +8,10 @@ JavaScript サンプルアプリケーション集
   - Angular CLI使ってみた
 - es6-sample
   - webpack + Babel6 でブラウザで動く最低限のアプリ
-- express-sample
+- express-generator-sample
   - ```express-generator``` 使ってみた
+- express-sample
+  - Node.jsのWebフレームワーク ```Express``` 触ってみた
 - line-chatbot
   - LINEチャットボットのサンプル
 - mean2-sample
