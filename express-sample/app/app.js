@@ -16,16 +16,16 @@ const config = require(path.join(__dirname, 'config', 'config.json'))[env];
 /**
  * APIルーティング先のロード
  */
-//const api = require('./api/index');
+//const api_router = require('./api/router');
 
 /**
  * Viewのルーティング先のロード
  */
-//const index = require('./controllers/index');
-//const users = require('./controllers/users');
 const controllers_router = require('./controllers/router');
 
-// express本体の作成
+/**
+ * express本体の作成
+ */
 const app = express();
 
 /**
@@ -85,14 +85,12 @@ app.use(express.static(path.join(__dirname, 'public')));
  * ルーティング
  */
 // APIルーティング
-// app.use('/api', api);
+// app.use('/api', api_router);
 // 上記のルーティングにマッチしなかった場合はindex.htmlを返す
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname, '..dist/index.html'));
 // });
 // Viewルーティング
-//app.use('/', index);
-//app.use('/users', users);
 app.use('/', controllers_router);
 // 上記のルーティングにマッチしなかった場合はエラー処理ミドルウェアに処理を流す
 app.use(function(req, res, next) {
