@@ -1,10 +1,19 @@
-var app = require('../../app');
+var sinon = require('sinon');
+var chai = require('chai');
+var expect = chai.expect;
+
+var get_index = require('../../controllers/get_index');
 
 describe('/', function() {
-    it('Index画面が表示されること', function(done) {
-        request(app)
-            .get('/')
-            .expect('Content-Type', 'text/html')
-            .expect(200, done);
-    });
+  it('Index画面が表示されること', function(done) {
+    var req,res,spy;
+
+    req = res = {};
+    spy = res.render = sinon.spy();
+
+    get_index(req, res);
+    expect(spy.calledOnce).to.equal(true);
+
+    done();
+  });
 });
