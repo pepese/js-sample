@@ -5,8 +5,8 @@ var mocha = require('gulp-mocha');
 var debug = require('gulp-debug');
 
 gulp.task('pre-test', function () {
-  //console.log(gulp.src(['app/controllers/*.js']));
-  return gulp.src(['app/controllers/*.js'])
+  //return gulp.src(['app/**/*.js'])
+  return gulp.src(['app/app.js','app/controllers/*.js'])
     //.pipe(debug())  // デバッグしたいとき
     // Covering files
     .pipe(istanbul({

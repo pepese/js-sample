@@ -117,9 +117,13 @@ app.use(function(err, req, res, next) {
 const port = process.env.PORT || config.port || '3000';
 app.set('port', port);
 
+module.exports = app;
+
 /**
  * HTTP server作成
  */
-const server = http.createServer(app);
-// listenポートを指定してHTTP serverを起動
-server.listen(port, () => console.log(`API running on localhost:${port}`));
+if(!module.parent){
+  const server = http.createServer(app);
+  // listenポートを指定してHTTP serverを起動
+  server.listen(port, () => console.log(`API running on localhost:${port}`));
+}
