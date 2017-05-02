@@ -5,6 +5,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const sassMiddleware = require('node-sass-middleware');
 const fs = require('fs');
 const FileStreamRotator = require('file-stream-rotator');
 const util = require('util');
@@ -73,6 +74,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(logger('combined', {stream: accessLogStream}));
 // cookieパーサ
 app.use(cookieParser());
+// SASSトランスパイル
+app.use(sassMiddleware({
+  src: path.join(__dirname, 'public'),
+  dest: path.join(__dirname, 'public'),
+  indentedSyntax: false, // true = .sass and false = .scss
+  sourceMap: true
+}));
 
 /**
  * ビルドインミドルウェア

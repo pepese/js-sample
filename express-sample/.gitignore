@@ -33,3 +33,5 @@ npm-debug.log
 ./**/.DS_Store
 ./app/log
 ./app/coverage
+./app/public/stylesheets/*.css
+./app/public/stylesheets/*.css.map
