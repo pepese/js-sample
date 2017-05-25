@@ -19,3 +19,5 @@ JavaScript サンプルアプリケーション集
   - ディレクトリ構成検討と動作確認のために作った
 - nodejs-sample
   - NodeJSの最低限の使い方確認用
+- cognito-js
+  - Amazon Cognito の User Pool を使って認証するサンプル

@@ -1,0 +1,49 @@
+<h1>
+  {{title}}
+</h1>
+<hr />
+<div>
+  <h2>サインアップ</h2>
+  <p>以下の項目を入力してユーザを新規に仮登録します。</p>
+  <table>
+    <tr><td>ユーザ名：</td><td><input type="text" [(ngModel)]="username"></td><tr>
+    <tr><td>パスワード：</td><td><input type="text" [(ngModel)]="password"></td></tr>
+    <tr><td>メールアドレス：</td><td><input type="text" [(ngModel)]="email"></td></tr>
+    <tr><td>携帯番号：</td><td><input type="text" [(ngModel)]="phone"></td></tr>
+  </table>
+  <button (click)="siginUp()">サインアップ</button>
+</div>
+<hr />
+<div>
+  <h2>認証コードの確認</h2>
+  <p>サインアップしたユーザにメールやSMSで送付された認証コードを確認し、ユーザを本登録します。</p>
+  <p>認証コードは6桁数字です。</p>
+  <table>
+    <tr><td>ユーザ名：</td><td>{{username}}</td></tr>
+    <tr><td>認証コード：</td><td><input type="text" [(ngModel)]="verification_code"></td></tr>
+  </table>
+  <button (click)="confirmRegistration()">確認</button>
+</div>
+<hr />
+<div>
+  <h2>サインイン</h2>
+  <p>本登録したユーザでサインイン（ログイン）します。</p>
+  <table>
+    <tr><td>ユーザ名：</td><td>{{username}}</td></tr>
+    <tr><td>パスワード：</td><td>{{password}}</td></tr>
+  </table>
+  <button (click)="signIn()">サインイン</button>
+</div>
+<hr />
+<div>
+  <h2>GET アクセス</h2>
+  <p>Session StorageのidTokenをAuthorizationヘッダへ付与してGetリクエストを送付します。</p>
+  <p>API GatewayのAuthorizationなどで試してみてください。</p>
+  <table>
+    <tr><td>URL：　</td><td><input type="text" [(ngModel)]="url"></td></tr>
+  </table>
+  <button (click)="get()">Send</button>
+  <table>
+    <tr><td>{{result}}</td></tr>
+  </table>
+</div>
