@@ -61,7 +61,7 @@ export class CognitoService {
     return;
   }
 
-  signIn(username, password) {
+  signIn(username, password, callback) {
     const userData = {
       Username : username,
       Pool : this.userPool,
@@ -77,11 +77,23 @@ export class CognitoService {
       onSuccess: function (result) {
         alert('SignIn is success!');
         console.log('access token + ' + result.getAccessToken().getJwtToken());
+        if(callback) callback();
       },
       onFailure: function(err) {
         alert(err);
+        // UserNotConfirmedException: User is not confirmed.
       }
     });
     return;
+  }
+
+  getSignInUserNmae() {
+    let username_key = 'CognitoIdentityServiceProvider.' + environment.clientId + '.LastAuthUser';
+    return sessionStorage.getItem(username_key);
+  }
+
+  signOut(callback) {
+    sessionStorage.clear();
+    if(callback) callback();
   }
 }

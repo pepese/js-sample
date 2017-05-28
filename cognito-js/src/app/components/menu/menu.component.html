@@ -1,0 +1,15 @@
+<div>
+  <a routerLink="/login" (click)="deleteSession()">ログアウト</a>
+</div>
+<div>
+  <h2>GET アクセス</h2>
+  <p>Session StorageのidTokenをAuthorizationヘッダへ付与してGetリクエストを送付します。</p>
+  <p>API GatewayのAuthorizationなどで試してみてください。</p>
+  <table>
+    <tr><td>URL：　</td><td><input type="text" [(ngModel)]="url"></td></tr>
+  </table>
+  <button (click)="get()">Send</button>
+  <table>
+    <tr><td>{{result}}</td></tr>
+  </table>
+</div>
