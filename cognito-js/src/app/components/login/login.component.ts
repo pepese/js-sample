@@ -33,9 +33,17 @@ export class LoginComponent implements OnInit {
   }
 
   signIn() {
-    let gotoMenu = function (router: Router) {
-      router.navigate(['/menu']);
+    // Session Storageにセッション情報が格納されるまで待ってから画面遷移
+    let gotoMenu = function (router: Router, cognitoService: CognitoService) {
+      let timerID = setInterval(function(){
+        if(cognitoService.getSignInUserNmae()){
+          //wait終了時の後処理
+          router.navigate(['/menu']);
+          clearInterval(timerID);
+          timerID = null;
+        }
+      }, 100);
     }
-    this.cognitoService.signIn(this.username, this.password, gotoMenu(this.router));
+    this.cognitoService.signIn(this.username, this.password, gotoMenu(this.router, this.cognitoService));
   }
 }
