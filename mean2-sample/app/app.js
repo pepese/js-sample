@@ -5,6 +5,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+//const sassMiddleware = require('node-sass-middleware');
 const fs = require('fs');
 const FileStreamRotator = require('file-stream-rotator');
 const util = require('util');
@@ -16,9 +17,16 @@ const config = require(path.join(__dirname, 'config', 'config.json'))[env];
 /**
  * APIルーティング先のロード
  */
-const api = require('./api/index');
+const api_router = require('./api/router');
 
-// express本体の作成
+/**
+ * Viewのルーティング先のロード
+ */
+//const controllers_router = require('./controllers/router');
+
+/**
+ * express本体の作成
+ */
 const app = express();
 
 /**
@@ -66,28 +74,40 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(logger('combined', {stream: accessLogStream}));
 // cookieパーサ
 // app.use(cookieParser());
+// SASSトランスパイル
+//app.use(sassMiddleware({
+//  src: path.join(__dirname, 'public'),
+//  dest: path.join(__dirname, 'public'),
+//  indentedSyntax: false, // true = .sass and false = .scss
+//  sourceMap: true
+//}));
 
 /**
  * ビルドインミドルウェア
  */
 // 静的コンテンツのパスを指定（フロントエンドアプリケーション）
+//app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, '../dist')));
 
 /**
- * ルーティング
+ * APIルーティング
  */
-// APIルーティング
-app.use('/api', api);
+app.use('/api', api_router);
 // 上記のルーティングにマッチしなかった場合はindex.htmlを返す
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..dist/index.html'));
 });
+
+/**
+ * VIEWルーティング
+ */
+//app.use('/', controllers_router);
 // 上記のルーティングにマッチしなかった場合はエラー処理ミドルウェアに処理を流す
-// app.use(function(req, res, next) {
-//   var err = new Error('Not Found');
-//   err.status = 404;
-//   next(err);
-// });
+//app.use(function(req, res, next) {
+//  var err = new Error('Not Found');
+//  err.status = 404;
+//  next(err);
+//});
 
 /**
  * エラー処理ミドルウェア
@@ -96,7 +116,6 @@ app.get('*', (req, res) => {
 // app.use(function(err, req, res, next) {
 //   res.locals.message = err.message;
 //   res.locals.error = req.app.get('env') === 'development' ? err : {};
-//
 //   res.status(err.status || 500);
 //   res.render('error');
 //});
@@ -107,9 +126,13 @@ app.get('*', (req, res) => {
 const port = process.env.PORT || config.port || '3000';
 app.set('port', port);
 
+module.exports = app;
+
 /**
  * HTTP server作成
  */
-const server = http.createServer(app);
-// listenポートを指定してHTTP serverを起動
-server.listen(port, () => console.log(`API running on localhost:${port}`));
+if(!module.parent){
+  const server = http.createServer(app);
+  // listenポートを指定してHTTP serverを起動
+  server.listen(port, () => console.log(`API running on localhost:${port}`));
+}

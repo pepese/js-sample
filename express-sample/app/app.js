@@ -90,15 +90,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, '../dist')));
 
 /**
- * ルーティング
+ * APIルーティング
  */
-// APIルーティング
 // app.use('/api', api_router);
 // 上記のルーティングにマッチしなかった場合はindex.htmlを返す
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname, '..dist/index.html'));
 // });
-// Viewルーティング
+
+/**
+ * VIEWルーティング
+ */
 app.use('/', controllers_router);
 // 上記のルーティングにマッチしなかった場合はエラー処理ミドルウェアに処理を流す
 app.use(function(req, res, next) {
@@ -114,7 +116,6 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
   res.status(err.status || 500);
   res.render('error');
 });
