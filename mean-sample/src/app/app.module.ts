@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { Ng2BootstrapModule } from 'ngx-bootstrap';
+import { FormsModule } from '@angular/forms'; // 追加行
+import { HttpModule } from '@angular/http';   // 追加行
+import { BsRootModule } from 'ngx-bootstrap'; // 追加行
 
 import { AppComponent } from './app.component';
 
@@ -12,10 +12,11 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
-    Ng2BootstrapModule
+    FormsModule, // 追加行
+    HttpModule,  // 追加行
+    BsRootModule // 追加行
   ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

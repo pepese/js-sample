@@ -1,5 +1,5 @@
 {
-  "name": "mean2-sample",
+  "name": "mean-sample",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -22,17 +22,18 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "body-parser": "^1.17.2",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "4.0.0-beta",
     "cookie-parser": "^1.4.3",
     "core-js": "^2.4.1",
     "debug": "^3.0.0",
     "express": "5.0.0-alpha.5",
-    "file-stream-rotator": "^0.1.0",
+    "file-stream-rotator": "^0.2.0",
     "fs": "^0.0.1-security",
-    "jquery": "^3.2.1",
+    "jquery": "3.2.1",
     "morgan": "^1.8.2",
     "ngx-bootstrap": "^1.8.1",
     "node-sass-middleware": "^0.11.0",
+    "popper.js": "1.11.1",
     "pug": "^2.0.0-rc.3",
     "request": "^2.81.0",
     "rxjs": "^5.4.2",
@@ -59,7 +60,5 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",
     "typescript": "~2.3.3"
-  },
-  "main": "index.js",
-  "author": "pepese"
+  }
 }

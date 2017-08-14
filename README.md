@@ -14,8 +14,8 @@ JavaScript サンプルアプリケーション集
   - Node.jsのWebフレームワーク ```Express``` 触ってみた
 - line-chatbot
   - LINEチャットボットのサンプル
-- mean2-sample
-  - MEANスタックのAngular（所謂Angular2）バージョン
+- mean-sample
+  - MEANスタックのAngular（所謂Angular4）バージョン
   - ディレクトリ構成検討と動作確認のために作った
 - nodejs-sample
   - NodeJSの最低限の使い方確認用
