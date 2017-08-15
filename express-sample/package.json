@@ -3,6 +3,32 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "nyc": {
+    "check-coverage": true,
+    "include": [
+      "app/**/*.js"
+    ],
+    "exclude": [
+      "app/spec/**/*.spec.js",
+      "app/config",
+      "app/log",
+      "app/public"
+    ],
+    "reporter": [
+      "html",
+      "text"
+    ],
+    "require": [],
+    "extension": [
+      ".js"
+    ],
+    "cache": true,
+    "all": true,
+    "report-dir": "app/coverage"
+  },
+  "scripts": {
+    "test": "nyc mocha app/spec/**/*.spec.js"
+  },
   "dependencies": {
     "body-parser": "^1.17.1",
     "cookie-parser": "^1.4.3",
@@ -17,14 +43,13 @@
     "serve-favicon": "^2.4.2"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "gulp-debug": "^3.1.0",
-    "gulp-istanbul": "^1.1.1",
-    "gulp-mocha": "3.0.1",
-    "isparta": "^4.0.0",
-    "mocha": "^3.3.0",
+    "chai": "^4.1.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.5.0",
+    "mocha-sinon": "^2.0.0",
+    "nyc": "^11.1.0",
     "should": "^11.2.1",
-    "sinon": "^2.1.0",
+    "sinon": "^3.2.0",
     "supertest": "^3.0.0"
   }
 }

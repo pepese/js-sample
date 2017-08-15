@@ -29,8 +29,10 @@ node_modules
 # Debug log from npm
 npm-debug.log
 
+# My Settings
 .DS_Store
 ./**/.DS_Store
+.nyc_output
 ./app/log
 ./app/coverage
 ./app/public/stylesheets/*.css
