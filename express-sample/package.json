@@ -11,6 +11,7 @@
     "exclude": [
       "app/spec/**/*.spec.js",
       "app/config",
+      "app/coverage",
       "app/log",
       "app/public"
     ],
