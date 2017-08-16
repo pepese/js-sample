@@ -35,6 +35,7 @@
     "report-dir": "app/coverage"
   },
   "scripts": {
+    "clean": "rimraf .nyc_output ./app/coverage",
     "test": "mocha app/spec/*.spec.js app/spec/**/*.spec.js"
   },
   "dependencies": {
@@ -52,11 +53,8 @@
   },
   "devDependencies": {
     "chai": "^4.1.1",
-    "istanbul": "^0.4.5",
     "mocha": "^3.5.0",
-    "mocha-sinon": "^2.0.0",
-    "nyc": "^11.1.0",
-    "should": "^11.2.1",
+    "rimraf": "^2.6.1",
     "sinon": "^3.2.0"
   }
 }
