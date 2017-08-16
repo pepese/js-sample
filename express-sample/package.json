@@ -5,11 +5,18 @@
   "license": "MIT",
   "nyc": {
     "check-coverage": true,
+    "per-file": true,
+    "lines": 90,
+    "statements": 90,
+    "functions": 90,
+    "branches": 90,
     "include": [
-      "app/**/*.js"
+      "app/"
     ],
     "exclude": [
       "app/spec/**/*.spec.js",
+      "app/app.js",
+      "app/controllers/router.js",
       "app/config",
       "app/coverage",
       "app/log",
@@ -28,7 +35,7 @@
     "report-dir": "app/coverage"
   },
   "scripts": {
-    "test": "nyc mocha app/spec/**/*.spec.js"
+    "test": "mocha app/spec/*.spec.js app/spec/**/*.spec.js"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
@@ -50,7 +57,6 @@
     "mocha-sinon": "^2.0.0",
     "nyc": "^11.1.0",
     "should": "^11.2.1",
-    "sinon": "^3.2.0",
-    "supertest": "^3.0.0"
+    "sinon": "^3.2.0"
   }
 }

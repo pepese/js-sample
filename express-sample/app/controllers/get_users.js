@@ -1,4 +1,4 @@
-const get_users = function(req, res, next) {
+const get_users = (req, res, next) => {
   res.send('respond with a resource');
 };
 

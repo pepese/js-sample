@@ -1,4 +1,4 @@
-const get_index = function(req, res, next) {
+const get_index = (req, res, next) => {
   res.render('index', { title: 'Express' });
 };
 

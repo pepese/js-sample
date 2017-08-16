@@ -51,7 +51,7 @@ const consoleLogStream = FileStreamRotator.getStream({
   date_format: "YYYY-MM-DD"
 });
 // console.logの出力をconsoleLogStreamへ流す
-console.log = function(d) {
+console.log = (d) => {
   consoleLogStream.write(util.format(d) + '\n');
 }
 
@@ -103,7 +103,7 @@ app.use(express.static(path.join(__dirname, 'public')));
  */
 app.use('/', controllers_router);
 // 上記のルーティングにマッチしなかった場合はエラー処理ミドルウェアに処理を流す
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
@@ -113,7 +113,7 @@ app.use(function(req, res, next) {
  * エラー処理ミドルウェア
  */
 // Viewの場合のエラー処理
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   res.status(err.status || 500);
