@@ -7,5 +7,7 @@ router.get('/users', require('./get_users'));
 router.get('/clients', require('./get_clients'));
 // 以下、HTTP(S)リクエスト用サンプル
 router.get('/ip', require('./get_ip'));
+// 以下、非同期HTTP(S)リクエスト用サンプル
+router.get('/ip_promise', require('./get_ip_promise'));
 
 module.exports = router;

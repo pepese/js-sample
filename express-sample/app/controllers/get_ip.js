@@ -20,6 +20,7 @@ const get_ip = (req, res, next) => {
     else {
       console.log('error: ' + error.message);
       res.status(500);
+      res.end('Internal Server Error'); // これがないとレスポンスが返らない
     }
   });
 };
