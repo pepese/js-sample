@@ -9,9 +9,9 @@ JavaScript サンプルアプリケーション集
 - es6-sample
   - webpack + Babel6 でブラウザで動く最低限のアプリ
 - express-generator-sample
-  - ```express-generator``` 使ってみた
+  - `express-generator` 使ってみた
 - express-sample
-  - Node.jsのWebフレームワーク ```Express``` 触ってみた
+  - Node.jsのWebフレームワーク `Express` 触ってみた
 - line-chatbot
   - LINEチャットボットのサンプル
 - mean-sample
@@ -21,3 +21,5 @@ JavaScript サンプルアプリケーション集
   - NodeJSの最低限の使い方確認用
 - cognito-js
   - Amazon Cognito の User Pool を使って認証するサンプル
+- dynamodb-js
+  - Amazon DynamoDB へアクセスするサンプル
