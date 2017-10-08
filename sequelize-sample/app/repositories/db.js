@@ -3,6 +3,7 @@ const sequelize = require('./sequelize');
 const User = require('../models/user');
 const Team = require('../models/team');
 const TeamUser = require('../models/team-user');
+const Account = require('../models/account');
 
 // 以下で m:n のリレーションを作成でき、以下が実行可能になる
 // user.addTeam : 既存のteamテーブルのteamモデル（配列も可）をuserと関連付け。
@@ -31,13 +32,24 @@ Team.belongsToMany(User, {
   otherKey: 'user_id'
 });
 
+User.hasMany(Account, {
+  foreignKey: 'user_id'
+});
+
+Account.belongsTo(User, {
+  foreignKey: 'user_id',
+  targetKey: 'user_id'
+});
+
 // テーブル作成
 User.sync();
 Team.sync();
 TeamUser.sync();
+Account.sync();
 
 module.exports = {
   User: User,
   Team: Team,
-  TeamUser: TeamUser
+  TeamUser: TeamUser,
+  Account
 };
