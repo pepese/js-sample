@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../repositories/sequelize');
 
-const Account = sequelize.define('account',
+const Account = sequelize.define('userAccount',
   {
     user_id: {
       type: Sequelize.STRING,
@@ -23,7 +23,7 @@ const Account = sequelize.define('account',
   },
   {
     timestamps: false,
-    tableName: 'account'
+    tableName: 'user_account'
   }
 );
 

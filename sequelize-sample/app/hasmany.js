@@ -12,13 +12,13 @@ User.create({
     where:{user_id: '0001'}
   }).then((user) => {
     console.log("user_name: " + user.user_name);
-    user.createAccount({
+    user.createUserAccount({
       account_id: `0001`,
       account_name: 'account0001'
     }).then(() => {
-      user.countAccounts().then((num) => {
+      user.countUserAccounts().then((num) => {
         console.log("account num of user: " + num);
-        user.getAccounts().then((user_accounts) => {
+        user.getUserAccounts().then((user_accounts) => {
           console.log("user accounts are");
           for(let i=0; i<user_accounts.length; i++) {
             console.log("-> " + user_accounts[i].account_id + " : " + user_accounts[i].account_name);
