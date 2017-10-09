@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../repositories/sequelize');
 
-const Account = sequelize.define('userAccount',
+const UserAccount = sequelize.define('userAccount',
   {
     user_id: {
       type: Sequelize.STRING,
@@ -27,4 +27,4 @@ const Account = sequelize.define('userAccount',
   }
 );
 
-module.exports = Account;
+module.exports = UserAccount;
